@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html,
+body {
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+  margin: 0;
+  padding: 0;
+}
+
+.slick-dots {
+  @apply absolute bottom-6 left-1/2 transform -translate-x-1/2 flex justify-center !important;
+}
+
+.slick-dots li {
+  @apply mx-2;
+}
+
+.slick-dots li button:before {
+  @apply text-lg text-white !important;
+}
+
+.slick-dots li.slick-active button:before {
+  @apply text-red-500 text-xl !important;
+}
+
+
+
+/* .slick-track{
+  display: flex !important; 
+  column-gap: 30px ;
+} */
+
+
+.monthSellsList .slick-slide {
+  padding: 0 20px;
+}
+.CartDiscountProduct .slick-slide{
+  padding: 0 20px;
+}
