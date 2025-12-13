@@ -5,10 +5,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { apiUrl } from "../config";
 import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice";
 import { useGetAllProductsQuery } from "../redux/features/products/productApi";
+import { baseApi } from "../redux/api/baseApi";
+import { useEffect, useState } from "react";
 
 const AllProduct = () => {
-  const { data, isLoading } = useGetAllProductsQuery();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const services = async () => {
+      setIsLoading(true);
+      try {
+        const res = await axios.get(`${baseApi}/api/product-list`);
+        console.log(res);
+        setIsLoading(false);
+      } catch (err) {
+        setIsLoading(false);
+      }
+    };
+    services();
+  }, []);
+  const { data,} = useGetAllProductsQuery();
   const products = data?.data;
+  console.log(products);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
