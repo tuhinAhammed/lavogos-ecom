@@ -367,6 +367,7 @@ function BillingDetails() {
                       <div className="flex items-center">
                         <div className="w-16 h-16 rounded-lg overflow-hidden">
                           <img
+                          loading="lazy" 
                             src={product.product_photo || "/placeholder.svg?height=64&width=64"}
                             alt={product.product_name}
                             className="w-full h-full object-cover"

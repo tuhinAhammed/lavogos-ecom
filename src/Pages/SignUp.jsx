@@ -46,6 +46,7 @@ const SignUp = () => {
 			<div className="hidden lg:flex items-center justify-center w-1/2 ">
 				<div className="relative">
 					<img
+						loading="lazy"
 						src={signPic} // Replace with your image URL
 						alt="Phone and Cart"
 						className="object-contain w-[805px]"
@@ -164,6 +165,7 @@ const SignUp = () => {
 					{/* Google Sign-up Button */}
 					<button className="w-full py-2 px-4 border border-gray-300 rounded-md font-medium shadow-sm flex items-center justify-center hover:bg-gray-100">
 						<img
+							loading="lazy"
 							src="https://www.google.com/favicon.ico" // Replace with Google logo URL
 							alt="Google"
 							className="w-5 h-5 mr-2"

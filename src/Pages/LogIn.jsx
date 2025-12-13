@@ -42,6 +42,7 @@ const LogIn = () => {
 			{/* Left Section */}
 			<div className=" flex justify-center items-center">
 				<img
+					loading="lazy"
 					src={signPic}
 					alt="Shopping Cart with Phone"
 					className="max-w-full"

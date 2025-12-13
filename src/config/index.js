@@ -1,1 +1,1 @@
-export const apiUrl = "http://ecom.bicharachar.com";
+export const apiUrl = "https://api.lavogos.com";

@@ -154,6 +154,7 @@ const ProductPage = () => {
             {product?.photos?.map((photo, index) => (
               <motion.img
                 key={index}
+                loading="lazy" 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 src={`${apiUrl}/${photo?.file_path}/${photo?.file_name}`}

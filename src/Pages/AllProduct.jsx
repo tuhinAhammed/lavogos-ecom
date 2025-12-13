@@ -9,21 +9,22 @@ import { baseApi } from "../redux/api/baseApi";
 import { useEffect, useState } from "react";
 
 const AllProduct = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const services = async () => {
-      setIsLoading(true);
-      try {
-        const res = await axios.get(`${baseApi}/api/product-list`);
-        console.log(res);
-        setIsLoading(false);
-      } catch (err) {
-        setIsLoading(false);
-      }
-    };
-    services();
-  }, []);
-  const { data,} = useGetAllProductsQuery();
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   const services = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       console.log(res, "k");
+  //       const res = await axios.get(`${baseApi}/api/product-list`);
+
+  //       setIsLoading(false);
+  //     } catch (err) {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   services();
+  // }, []);
+  const { data, isLoading } = useGetAllProductsQuery();
   const products = data?.data;
   console.log(products);
   const dispatch = useDispatch();
@@ -121,21 +122,22 @@ const AllProduct = () => {
                   src={`${apiUrl}/${product?.photos[0]?.file_path}/${product?.photos[0]?.file_name}`}
                   alt={product.product_name}
                   className="w-full aspect-[4/5] object-cover"
+                  loading="lazy" 
                 />
-              {product?.offer_price && (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    className="absolute bottom-1 sm:bottom-2 md:bottom-4 right-1 sm:right-2 md:right-4 bg-white rounded-sm sm:rounded-md md:rounded-lg px-1 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-1.5 font-medium sm:font-semibold md:font-bold text-xs sm:text-sm md:text-base scale-75 sm:scale-90 md:scale-100 shadow-sm sm:shadow-md md:shadow-lg"
-  >
-    {Math.round(
-      ((product.regular_price - product.offer_price) /
-        product.regular_price) *
-        100
-    )}
-    % OFF
-  </motion.div>
-)}
+                {product?.offer_price && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="absolute bottom-1 sm:bottom-2 md:bottom-4 right-1 sm:right-2 md:right-4 bg-white rounded-sm sm:rounded-md md:rounded-lg px-1 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-1.5 font-medium sm:font-semibold md:font-bold text-xs sm:text-sm md:text-base scale-75 sm:scale-90 md:scale-100 shadow-sm sm:shadow-md md:shadow-lg"
+                  >
+                    {Math.round(
+                      ((product.regular_price - product.offer_price) /
+                        product.regular_price) *
+                      100
+                    )}
+                    % OFF
+                  </motion.div>
+                )}
               </div>
 
               <div className="p-4">
@@ -150,27 +152,27 @@ const AllProduct = () => {
                   )}
                 </div>
 
-                <h3 className="text-xs md:text-xl font-medium text-gray-800 mb-4 line-clamp-2">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-800 mb-4 line-clamp-2 md:h-[50px]">
                   {product.product_name}
                 </h3>
 
-                <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4 w-full max-w-lg mx-auto px-4 sm:px-0">
+                <div className="space-y-3 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-2 w-full max-w-lg mx-auto px-0">
                   <a
                     href={`/product/${product.id}`}
-                    className="group relative flex items-center justify-center w-full h-12 sm:h-14 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="group relative flex items-center justify-center w-full h-12  sm:h-14 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span className="absolute inset-0 bg-white/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                    <span className="relative font-bold text-sm sm:text-base tracking-wider z-10">
+                    <span className="relative font-bold text-sm sm:text-sm tracking-wider z-10">
                       BUY NOW
                     </span>
                   </a>
 
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="group relative flex items-center justify-center w-full h-12 sm:h-14 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="group relative flex items-center justify-center w-full h-12   sm:h-14 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <span className="absolute inset-0 bg-white/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                    <span className="relative font-bold text-sm sm:text-base tracking-wider z-10">
+                    <span className="relative font-bold text-sm sm:text-sm tracking-wider z-10">
                       {cart.some((item) => item.id === product.id)
                         ? "REMOVE"
                         : "ADD TO CART"}

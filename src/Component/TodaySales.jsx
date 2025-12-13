@@ -10,6 +10,7 @@ const TodaySales = ({ title, className }) => {
           <div className="flex  sm:flex-row justify-center items-center gap-4 px-4 sm:px-6 lg:px-8">
             <img
               src={commonImg}
+              loading="lazy" 
               alt="Today Sales"
               className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 object-contain"
             />

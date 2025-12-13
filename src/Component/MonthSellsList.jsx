@@ -128,6 +128,7 @@ const MonthSellsList = () => {
                       className="h-full"
                     >
                       <img
+                      loading="lazy" 
                         src={`${apiUrl}/${product?.photos[0]?.file_path}/${product?.photos[0]?.file_name}`}
                         alt={product.product_name}
                         className="w-full h-full object-cover"

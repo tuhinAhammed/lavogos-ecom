@@ -115,6 +115,7 @@ const SelectedProduct = () => {
                       ×
                     </button>
                     <img
+                    loading="lazy" 
                       src={`${apiUrl}/${item?.photos[0]?.file_path}/${item?.photos[0]?.file_name}`}
                       alt={item.product_name}
                       className="w-16 h-16 object-cover"

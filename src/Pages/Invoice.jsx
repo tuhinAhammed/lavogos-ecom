@@ -145,6 +145,7 @@ function Invoice() {
                   <div className="flex items-center">
                     <div className="w-16 h-16 rounded-lg overflow-hidden">
                       <img
+                      loading="lazy" 
                         src={product.product_photo || "/placeholder.svg"}
                         alt={product.product_name}
                         className="w-full h-full object-cover"

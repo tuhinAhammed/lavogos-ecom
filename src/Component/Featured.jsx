@@ -14,7 +14,7 @@ const Featured = () => {
                 <Flex className={'gap-x-[30px]'}>
                     <div className='w-[570px] relative'>
                         <div>
-                            <img src={feature} alt="" />
+                            <img src={feature} alt="" loading="lazy" />
                         </div>
                         <div className='absolute left-8 bottom-8 text-white'>
                             {/* <h5>PlayStation 5</h5>
@@ -25,7 +25,7 @@ const Featured = () => {
                     <div>
                         <div className='432px relative'>
                             <div>
-                                <img src={feature4} alt="" />
+                                <img src={feature4} alt="" loading="lazy" />
                             </div>
                             <div className='absolute left-[6px] bottom-[8px] text-white'>
                                 {/* <h5 className='text-[10px]'>PlayStation 5</h5>
@@ -40,7 +40,7 @@ const Featured = () => {
                         <div className='flex gap-x-[30px] mt-[30px]'>
                             <div className='relative'>
                                 <div>
-                                    <img src={feature2} alt="" className='w-[270px]' />
+                                    <img src={feature2} alt="" loading="lazy"  className='w-[270px]' />
                                 </div>
                                 <div>
                                     <div className='absolute left-8 bottom-8 text-white hidden md:block'>
@@ -52,7 +52,7 @@ const Featured = () => {
                             </div>
                             <div className='relative'>
                                 <div>
-                                    <img src={feature3} alt="" className='w-[270px]' />
+                                    <img src={feature3} loading="lazy"  alt="" className='w-[270px]' />
                                 </div>
                                 <div>
                                     <div className='absolute left-8 bottom-8 text-white hidden md:block'>

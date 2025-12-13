@@ -110,23 +110,24 @@ const ProductItem = () => {
                     alt={product?.product_name}
                     className="w-full aspect-[4/5] object-cover"
                     onClick={() => handleImageClick(product)}
+                    loading="lazy"
                   />
                 </motion.div>
               </Link>
               {product?.offer_price && (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
-    className="absolute bottom-1 sm:bottom-2 md:bottom-4 right-1 sm:right-2 md:right-4 bg-white rounded-sm sm:rounded-md md:rounded-lg px-1 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-1.5 font-medium sm:font-semibold md:font-bold text-xs sm:text-sm md:text-base scale-75 sm:scale-90 md:scale-100 shadow-sm sm:shadow-md md:shadow-lg"
-  >
-    {Math.round(
-      ((product.regular_price - product.offer_price) /
-        product.regular_price) *
-        100
-    )}
-    % OFF
-  </motion.div>
-)}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="absolute bottom-1 sm:bottom-2 md:bottom-4 right-1 sm:right-2 md:right-4 bg-white rounded-sm sm:rounded-md md:rounded-lg px-1 sm:px-2 md:px-4 py-0.5 sm:py-1 md:py-1.5 font-medium sm:font-semibold md:font-bold text-xs sm:text-sm md:text-base scale-75 sm:scale-90 md:scale-100 shadow-sm sm:shadow-md md:shadow-lg"
+                >
+                  {Math.round(
+                    ((product.regular_price - product.offer_price) /
+                      product.regular_price) *
+                    100
+                  )}
+                  % OFF
+                </motion.div>
+              )}
             </div>
 
             <div className="p-4 space-y-4">
@@ -168,7 +169,7 @@ const ProductItem = () => {
                 >
                   <Link
                     to={`/product/${product?.id}`}
-                    className="flex h-11 sm:h-12 items-center justify-center px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+                    className="flex h-11 sm:h-12 items-center justify-center px-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-sm"
                   >
                     BUY NOW
                   </Link>
@@ -178,7 +179,7 @@ const ProductItem = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleAddToCart(product)}
-                  className="w-full h-11 sm:h-12 flex items-center justify-center px-4 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+                  className="w-full h-11 sm:h-12 flex items-center justify-center px-2 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-xl font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-sm"
                 >
                   {cart.some((item) => item.id === product.id)
                     ? "REMOVE"

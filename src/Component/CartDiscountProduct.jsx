@@ -97,6 +97,7 @@ const CartDiscountProduct = () => {
                 <div className="relative bg-white rounded-lg p-4 shadow-lg">
                   <img
                     src={selectedImage}
+                    loading="lazy" 
                     alt="Selected Product"
                     className="w-96 h-96 object-cover rounded-md"
                   />
@@ -137,6 +138,7 @@ const CartDiscountProduct = () => {
                   : "https://via.placeholder.com/300"
               }
               alt={product.product_name}
+              loading="lazy" 
               className="w-full h-72 md:h-96 object-cover rounded-md transform transition duration-300 hover:scale-110"
             />
           </Link>
