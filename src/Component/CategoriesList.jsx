@@ -8,6 +8,7 @@ import panjabi from "../assets/panjabi.png";
 import pant from "../assets/pant.png";
 import shirt from "../assets/shirt.png";
 import tshirt from "../assets/tshirt.png";
+import women from "../assets/women.jpeg";
 
 const CategoriesList = () => {
   const categoriesListItem = [
@@ -19,6 +20,7 @@ const CategoriesList = () => {
     { url: drop, name: "𝐃𝐑𝐎𝐏", link: "/category/drop" },
     { url: tshirt, name: "𝐓-𝐒𝐇𝐈𝐑𝐓", link: "/category/t_shirt" },
     { url: cap, name: "CAP", link: "/category/cap" },
+    { url: women, name: "women", link: "/category/women" },
   ];
 
   return (
